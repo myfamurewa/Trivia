@@ -66,6 +66,19 @@ h5 {
   border: none;
 }
 
+.submitbtn {
+  font-size: 2.4rem;
+  padding: 2rem 0;
+  width: 64rem;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  background: rgb(1, 119, 64);
+  margin: 2%;
+  padding: 1rem;
+  border: none;
+}
+
 .selectionbtn {
   font-size: 1.2rem;
   margin: .25%;

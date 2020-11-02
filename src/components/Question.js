@@ -6,21 +6,18 @@ import {shuffle} from "../utils/shuffle"
 export default function Question({setAnswer, handleAnswer, data: {question, correct_answer, incorrect_answers}}) {
     const shuffledAnswer = shuffle([correct_answer, ...incorrect_answers])
     const Button = ({answer}) => (
-        <button className="btn" onClick={() => setAnswer(answer)} >
-            {answer}
-        </button>
+        <button className="btn" dangerouslySetInnerHTML={{__html: answer}} onClick={() => setAnswer(answer)} />
     )
     return (
         <div>
-            <h1>
-                {question}
-            </h1>
+            <h1 dangerouslySetInnerHTML={{__html: question}}
+                />
             <div>
                 {shuffledAnswer.map(answer => (
                     <Button className="btn" answer={answer}/>
                 ))}
+            <button className="btn submitbtn" onClick={()=> handleAnswer()}>Submit Answer</button>
             </div>
-            <button onClick={()=> handleAnswer()}>Submit Answer</button>
         </div>
     )
 }
