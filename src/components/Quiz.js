@@ -40,10 +40,10 @@ function Quiz(props) {
       setIterator(iterator + 1)
   }
   return (
-    <>{iterator >= questions.length && questions.length > 0 ?(<h1>
+    <>{iterator >= questions.length && questions.length > 0 ?(<div><h1>
         Thanks for playing<br></br>
         You got {score}/ {iterator} questions correct
-    </h1>) :(      <div className="container">
+    </h1><button onClick={()=> reset()}>Play Again?</button></div>) :(      <div className="container">
         {questions.length > 0 ? (
           <Question data={questions[iterator]} setAnswer={setAnswer} handleAnswer={handleAnswer} reset={reset}/>
         ) : (
