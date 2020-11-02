@@ -3,7 +3,7 @@ import {shuffle} from "../utils/shuffle"
 
 
 
-export default function Question({setAnswer, handleAnswer, data: {question, correct_answer, incorrect_answers}}) {
+export default function Question({setAnswer, handleAnswer, reset, data: {question, correct_answer, incorrect_answers}}) {
     const shuffledAnswer = shuffle([correct_answer, ...incorrect_answers])
     const Button = ({answer}) => (
         <button className="btn" dangerouslySetInnerHTML={{__html: answer}} onClick={() => setAnswer(answer)} />
@@ -17,6 +17,7 @@ export default function Question({setAnswer, handleAnswer, data: {question, corr
                     <Button className="btn" answer={answer}/>
                 ))}
             <button className="btn submitbtn" onClick={()=> handleAnswer()}>Submit Answer</button>
+            <button className="btn resetbtn" onClick={()=> reset()}>Reset Quiz</button>
             </div>
         </div>
     )

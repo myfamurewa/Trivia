@@ -69,11 +69,24 @@ h5 {
 .submitbtn {
   font-size: 2.4rem;
   padding: 2rem 0;
-  width: 64rem;
+  width: 30rem;
   text-align: center;
   text-decoration: none;
   color: #ffffff;
   background: rgb(1, 119, 64);
+  margin: 2%;
+  padding: 1rem;
+  border: none;
+}
+
+.resetbtn {
+  font-size: 2.4rem;
+  padding: 2rem 0;
+  width: 30rem;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  background: rgb(206, 49, 49);
   margin: 2%;
   padding: 1rem;
   border: none;

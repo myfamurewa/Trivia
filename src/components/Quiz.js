@@ -32,6 +32,12 @@ function Quiz(props) {
       });
   };
 
+  const reset = () => {
+    setQuestions([])
+    setScore(0)
+    setIterator(0)
+  }
+
   const handleAnswer = () => {
       console.log("handle answer called", iterator, answer)
       if (answer === questions[iterator].correct_answer){
@@ -45,7 +51,7 @@ function Quiz(props) {
         You got {score}/ {iterator} questions correct
     </h1>) :(      <div className="container">
         {questions.length > 0 ? (
-          <Question data={questions[iterator]} setAnswer={setAnswer} handleAnswer={handleAnswer}/>
+          <Question data={questions[iterator]} setAnswer={setAnswer} handleAnswer={handleAnswer} reset={reset}/>
         ) : (
           <>
             <Selection
