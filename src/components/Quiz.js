@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import axios from "axios";
 import { categories } from "./Categories";
 import Question from "./Question"
@@ -9,7 +9,9 @@ function Quiz(props) {
   const [category, setCategory] = useState("");
   const [numberofQuestions, setNumberOfQuestions] = useState(10);
   const [difficulty, setDifficulty] = useState("medium");
+  const [answer, setAnswer] = useState(null)
   const [score, setScore] = useState(0)
+
   const makeSelections = () => {
     console.log("selections made")
     axios
@@ -27,20 +29,21 @@ function Quiz(props) {
       });
   };
 
-  const handleAnswer = (answer) => {
-      setIterator(iterator + 1)
-      if (answer === true){
+  const handleAnswer = () => {
+      console.log("handle answer called", iterator, answer)
+      if (answer === questions[iterator].correct_answer){
           setScore(score + 1)
       }
+      setIterator(iterator + 1)
   }
   return (
-    <>{iterator >= questions.length && questions.length > 0 ?(<div>
+    <>{iterator >= questions.length && questions.length > 0 ?(<h1>
         Thanks for playing<br></br>
-        You got {score}/ {iterator + 1} questions correct
-    </div>) :(      <div className="container">
+        You got {score}/ {iterator} questions correct
+    </h1>) :(      <div className="container">
         {console.log(category)}
         {questions.length > 0 ? (
-          <Question data={questions[iterator]} handleAnswer={handleAnswer}/>
+          <Question data={questions[iterator]} setAnswer={setAnswer} handleAnswer={handleAnswer}/>
         ) : (
           <>
             <Selection
@@ -52,7 +55,6 @@ function Quiz(props) {
               setNumberOfQuestions={setNumberOfQuestions}
               makeSelections={makeSelections}
             />
-            <span>Loading questions</span>{" "}
           </>
         )}
       </div>)}

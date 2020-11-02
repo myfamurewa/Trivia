@@ -1,25 +1,26 @@
 import React from 'react'
 import {shuffle} from "../utils/shuffle"
 
-const Button = ({answer}) => (
-    <button>
-        {answer}
-    </button>
-)
 
-export default function Question({handleAnswer, data: {question, correct_answer, incorrect_answers}}) {
+
+export default function Question({setAnswer, handleAnswer, data: {question, correct_answer, incorrect_answers}}) {
     const shuffledAnswer = shuffle([correct_answer, ...incorrect_answers])
+    const Button = ({answer}) => (
+        <button className="btn" onClick={() => setAnswer(answer)} >
+            {answer}
+        </button>
+    )
     return (
         <div>
-            <h2>
+            <h1>
                 {question}
-            </h2>
+            </h1>
             <div>
                 {shuffledAnswer.map(answer => (
-                    <Button onClick={() => answer === correct_answer ? handleAnswer(true): handleAnswer(false)}>{answer}</Button>
+                    <Button className="btn" answer={answer}/>
                 ))}
             </div>
-
+            <button onClick={()=> handleAnswer()}>Submit Answer</button>
         </div>
     )
 }

@@ -7,7 +7,7 @@ export default function QuestionRange(props) {
     return (
         <div>
             <input type="range" name="numberofQuestions" id="numberofQuestions" min="1" max="30" step="1" onInput={handleInputChange}  value="10"/>
-            <output >{props.numberofQuestions}</output>
+            <output className="selectiontxt">{props.numberofQuestions}</output>
         </div>
     )
 }

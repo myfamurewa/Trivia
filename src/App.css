@@ -1,38 +1,101 @@
-.App {
+:root {
+  background-color: rgb(29, 26, 26);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 62.5%;
+}
+
+h1 {
+  font-size: 5.4rem;
+  color: #ffffff;
+  margin-bottom:  5rem;
+}
+
+h2 {
+  font-size:  4.2rem;
+  margin-bottom: 4rem;
+}
+h5 {
+  font-size: 2.4rem;
+  color: #ffffff;
+  margin-bottom:  .5rem;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.justify-center {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.text-center {
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.hidden {
+  display: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.btn {
+  font-size: 2.4rem;
+  padding: 2rem 0;
+  width: 30rem;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  background:  rgb(3, 221, 119);
+  margin: 2%;
+  padding: 1rem;
+  border: none;
+}
+
+.selectionbtn {
+  font-size: 1.2rem;
+  margin: .25%;
+  padding: .75rem;
+  text-align: center;
+  text-decoration: none;
+  background: midnightblue;
+  color: white;
+  border-radius: 5%;
+  border: none
+}
+
+.selectiontxt {
+  font-size: 1.75rem;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn:hover {
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(8, 114, 244, 0.6);
+  transition: transform 150ms;
+  transform: scale(1.03)
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn[disabled]:hover {
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.big {
+  font-size: 1.9rem;
 }

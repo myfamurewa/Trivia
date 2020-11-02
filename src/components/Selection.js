@@ -1,13 +1,10 @@
-import React, {useState, useEffect} from 'react'
-import { categorykeys} from './Categories'
+import React from 'react'
+import { categorykeys } from './Categories'
 import QuestionRange from './QuestionRange'
 import CategoryButton from './CategoryButton'
 
 export default function Selection({category, numberofQuestions, difficulty, setCategory, setDifficulty, setNumberOfQuestions, makeSelections}) {
-    
-    useEffect(() => {
-        console.log("category", category, "number of Questions", numberofQuestions, "difficulty", difficulty)
-    }, [category, numberofQuestions, difficulty])
+
     return (
         <div>
             <h1>Welcome to Apex Quizzer</h1>
@@ -16,21 +13,23 @@ export default function Selection({category, numberofQuestions, difficulty, setC
                 <CategoryButton category={category} setCategory={setCategory}/>
             ))}
             <h5>Choose the number of questions</h5>
-            <button onClick={() => setDifficulty("easy")}>
+            <button className="selectionbtn" onClick={() => setDifficulty("easy")}>
                 Easy
             </button>
-            <button onClick={() => setDifficulty("medium")}>
+            <button className="selectionbtn" onClick={() => setDifficulty("medium")}>
                 Medium
             </button>
-            <button onClick={() => setDifficulty("hard")}>
+            <button className="selectionbtn" onClick={() => setDifficulty("hard")}>
                 Hard
             </button>
             <h5>Choose the number of questions</h5>
             <QuestionRange numberofQuestions={numberofQuestions} setNumberOfQuestions={setNumberOfQuestions} />
 
-            <button onClick={()=> makeSelections()}>
+            <button className="selectionbtn big" onClick={()=> makeSelections()}>
                 Lock in Selections
             </button>
+            <br></br>
+            <span className="selectiontxt">Make your selections and click the lock in button to start the quiz</span>
         </div>
     )
 }
