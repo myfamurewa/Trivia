@@ -7,8 +7,8 @@ export default function App() {
   return (
     <div>
       <Switch>
-        <Route path="/" component={Selection}/>
         <Route path="/quiz" component={Quiz}/>
+        <Route path="/" component={Selection}/>
       </Switch>
       
     </div>
