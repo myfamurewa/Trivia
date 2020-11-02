@@ -16,11 +16,8 @@ export function shuffle(array) {
   
     return array;
   }
-export const addAndShuffle = (correctAnswer) => {
-    if (questions[iterator].type === "multiple"){
-    questions[iterator].incorrect_answers.push(correctAnswer)
-    questions[iterator].incorrect_answers = shuffle(questions[iterator].incorrect_answers)
-    } else {
-        return
-    }
+export const addAndShuffle = (correctAnswer, question) => {
+    question.incorrect_answers.push(correctAnswer)
+    question.incorrect_answers = shuffle(question.incorrect_answers)
+    return question
 }

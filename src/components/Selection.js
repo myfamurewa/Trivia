@@ -1,12 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import {categories, categorykeys} from './Categories'
+import { categorykeys} from './Categories'
 import QuestionRange from './QuestionRange'
 import CategoryButton from './CategoryButton'
 
-export default function Selection() {
-    const [category, setCategory] = useState("")
-    const [numberofQuestions, setNumberOfQuestions] = useState(10)
-    const [difficulty, setDifficulty] = useState("medium")
+export default function Selection({category, numberofQuestions, difficulty, setCategory, setDifficulty, setNumberOfQuestions, makeSelections}) {
+    
     useEffect(() => {
         console.log("category", category, "number of Questions", numberofQuestions, "difficulty", difficulty)
     }, [category, numberofQuestions, difficulty])
@@ -29,6 +27,10 @@ export default function Selection() {
             </button>
             <h5>Choose the number of questions</h5>
             <QuestionRange numberofQuestions={numberofQuestions} setNumberOfQuestions={setNumberOfQuestions} />
+
+            <button onClick={()=> makeSelections()}>
+                Lock in Selections
+            </button>
         </div>
     )
 }
