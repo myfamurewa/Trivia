@@ -2,7 +2,6 @@ import React, { useState} from "react";
 import axios from "axios";
 import { categories } from "./Categories";
 import Question from "./Question"
-import Loader from 'react-loader-spinner'
 import Selection from "./Selection";
 function Quiz(props) {
   const [questions, setQuestions] = useState([]);
@@ -12,10 +11,7 @@ function Quiz(props) {
   const [difficulty, setDifficulty] = useState("medium");
   const [answer, setAnswer] = useState(null)
   const [score, setScore] = useState(0)
-  const [loading, setLoading] = useState(false)
   const makeSelections = () => {
-    console.log("selections made")
-    setLoading(true)
     axios
       .get(
         `https://opentdb.com/api.php?amount=${numberofQuestions}${
@@ -23,8 +19,6 @@ function Quiz(props) {
         }&type=multiple`
       )
       .then((res) => {
-        setLoading(false)
-        console.log("results", res)
         setQuestions(res.data.results);
       })
       .catch((err) => {
